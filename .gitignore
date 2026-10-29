@@ -1,0 +1,15 @@
+.vs/
+out/
+vs2022/.vs/
+vs2022/Intermediate/
+vs2022/Staging/
+vs2022/Release/*.dll
+vs2022/Release/*.exp
+vs2022/Release/*.lib
+vs2022/Release/*.log
+vs2022/Release/*.pdb
+vs2022/Release/Tibia.*
+vs2022/Debug/
+vs2022/ReleasePublic/
+dist/
+*.user

@@ -1,0 +1,28 @@
+AJUSTES PARA A SOURCE TFS 1.7 FORNECIDA - 28/10/2026
+
+DLL compilada: dist/public/ddraw.dll (Release, Win32/x86).
+Copiar somente esse ddraw.dll para a mesma pasta do Tibia.exe 8.60.
+A DLL fornecida tambem foi copiada para a pasta local do cliente CIP.
+Esta versao habilita multicliente no Tibia CIP 8.60 compativel, aplicando o
+ajuste em memoria no inicio. O arquivo Tibia.exe nao e alterado no disco.
+
+Compatibilidade com protocolgame.cpp:
+- Vida e mana: uint32.
+- Efeitos magicos e tiros: uint16.
+- Outfits e montarias: lookMount uint16 e contagem de outfits uint16.
+- A janela exibe ate 255 outfits; entradas excedentes sao consumidas para
+  preservar a posicao da lista de montarias e do proximo opcode.
+- Ping nativo 0x1E sem dados; custom ping e seu overlay de RTT desligados.
+- Identificacao de sistema operacional nativa do Windows.
+- Weather desligado por padrao em src/config.h: should_use_weather = false.
+  Nessa configuracao nao instala hooks do clima, nao adiciona marcador ao
+  login e nao exige resposta/timeout de clima do servidor.
+
+O host inicial continua em src/config.h (TIBIA_BOOTSTRAP_DOMAIN = 127.0.0.1).
+Para outro host, ajustar antes de recompilar. O redirecionamento usa o IP
+e a porta enviados pelo servidor na lista de personagens.
+
+Validacao: compilacao Release/Win32 com avisos tratados como erros;
+verificacao publica/integridade e teste de alteracao de um byte aprovados;
+testes do rastreador de ping e do leitor real de outfits/montarias aprovados.
+Nao foi realizado teste de login/jogo com um servidor em execucao.
